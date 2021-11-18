@@ -108,6 +108,8 @@ $(document).ready(async function () {
         })
         $('#sunny').html(`<br/><a href="https://airdrop.sunny.ag/" class="btn btn-info">Check Now</a>`)
         $('#osmosis').html(`<br/><a href="https://app.osmosis.zone/airdrop" class="btn btn-info">Check Now</a>`)
+        $('#lum').html(`<br/><a href="https://airdrop.lum.network/" class="btn btn-info">Check Now</a>`)
+
 
     });
 });
