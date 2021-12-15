@@ -87,20 +87,20 @@ $(document).ready(async function () {
         $('#spinner').html(`<div class="animationload">
         <div class="osahanloading"></div>
     </div>`);
-        Promise.all([checkDesmos(address), checkGame(address), checkStar(address), checkComdex(address), checkJuno(address), checkPstake(address)]).then(([desmos, game, star, comdex, juno, pstake]) => {
+        Promise.all([checkDesmos(address), checkGame(address), checkStar(address), checkJuno(address)]).then(([desmos, game, star, juno]) => {
             $('#desmos').html(`The allocated $DSM amount is <br/><h3>${desmos.dsm_allotted.toFixed(2)} DSM</h3>`);
             $('#game').html(`The allocated $GAME amount is <br/><h3>${(game.amount / 10e5).toFixed(2)} GAME</h3>`);
             $('#stargaze').html(`The allocated $STAR amount is <br/><h3>${star.balance.toFixed(2)} STAR</h3>`);
-            $('#comdex').html(`The allocated $CMDX amount is <br/><h3>${comdex.length > 0 ? Number(comdex[0].drop).toFixed(2) : 0} CMDX</h3>`);
+            // $('#comdex').html(`The allocated $CMDX amount is <br/><h3>${comdex.length > 0 ? Number(comdex[0].drop).toFixed(2) : 0} CMDX</h3>`);
             $('#juno').html(`The allocated $JUNO amount is <br/><h3>${juno.balance.toFixed(2)} JUNO</h3>`);
-            let pstakeHtml = '';
-            if (pstake.success) {
-                let pstakeBalance = Number(pstake.result.airdrop.tokenHoldersAndStakersDrop) + Number(pstake.result.airdrop.stakeDropAuditStakersDrop) + Number(pstake.result.airdrop.stakeDropStakersDrop);
-                pstakeHtml = `The allocated $PSTAKE amount is <br/><h3>${pstakeBalance} PSTAKE</h3><br/> <a href="#" class="btn btn-info">Claim</a> `;
-            } else {
-                pstakeHtml = `The allocated $PSTAKE amount is <br/><h3>0 PSTAKE</h3>`
-            }
-            $('#pstake').html(pstakeHtml);
+            // let pstakeHtml = '';
+            // if (pstake.success) {
+            //     let pstakeBalance = Number(pstake.result.airdrop.tokenHoldersAndStakersDrop) + Number(pstake.result.airdrop.stakeDropAuditStakersDrop) + Number(pstake.result.airdrop.stakeDropStakersDrop);
+            //     pstakeHtml = `The allocated $PSTAKE amount is <br/><h3>${pstakeBalance} PSTAKE</h3><br/> <a href="#" class="btn btn-info">Claim</a> `;
+            // } else {
+            //     pstakeHtml = `The allocated $PSTAKE amount is <br/><h3>0 PSTAKE</h3>`
+            // }
+            // $('#pstake').html(pstakeHtml);
             $('#spinner').hide();
         }).catch(err => {
             console.log(err);
