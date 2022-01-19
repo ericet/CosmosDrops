@@ -1,4 +1,3 @@
-
 const checkDesmos = (address) => {
     return new Promise((resolve, reject) => {
         axios.get(`https://api.airdrop.desmos.network/users/${address}`).then(res => {
@@ -80,16 +79,15 @@ const checkPstake = (address) => {
     });
 }
 
-$(document).ready(async function () {
-    $('#findButton').submit(async function (e) {
+$(document).ready(async function() {
+    $('#findButton').submit(async function(e) {
         e.preventDefault();
         let address = $('#address').val().trim();
         if (!address) {
             alert("Please Enter Cosmos Address!");
             $("#address").focus();
             return;
-        }
-        else if(!address.startsWith('cosmos')){
+        } else if (!address.startsWith('cosmos')) {
             alert("Invalid Cosmos Address!");
             $("#address").focus();
             return;
@@ -97,7 +95,7 @@ $(document).ready(async function () {
         $('#spinner').html(`<div class="animationload">
         <div class="osahanloading"></div>
     </div>`);
-        Promise.all([checkDesmos(address), checkGame(address), checkStar(address), checkJuno(address),checkLikecoin(address)]).then(([desmos, game, star, juno,likecoin]) => {
+        Promise.all([checkDesmos(address), checkGame(address), checkStar(address), checkJuno(address), checkLikecoin(address)]).then(([desmos, game, star, juno, likecoin]) => {
             $('#desmos').html(`The allocated $DSM amount is <br/><h3>${desmos.dsm_allotted.toFixed(2)} DSM</h3>`);
             $('#game').html(`The allocated $GAME amount is <br/><h3>${(game.amount / 10e5).toFixed(2)} GAME</h3>`);
             $('#stargaze').html(`The allocated $STAR amount is <br/><h3>${star.balance.toFixed(2)} STAR</h3>`);
@@ -122,7 +120,9 @@ $(document).ready(async function () {
         $('#osmosis').html(`<br/><a href="https://app.osmosis.zone/airdrop" class="btn btn-info">Check Now</a>`)
         $('#lum').html(`<br/><a href="https://airdrop.lum.network/" class="btn btn-info">Check Now</a>`)
         $('#sommelier').html(`<br/><a href="https://airdrop.sommelier.finance/" class="btn btn-info">Check Now</a>`)
-
+        $('#shade').html(`<br/><a href="https://airdrop.shadeprotocol.io/" class="btn btn-info">Check Now</a>`)
+        $('#comdex').html(`<br/><a href="https://airdrop.comdex.one/" class="btn btn-info">Check Now</a>`)
+        $('#pstake').html(`<br/><a href="https://airdrop.pstake.finance/" class="btn btn-info">Check Now</a>`)
 
     });
 });
