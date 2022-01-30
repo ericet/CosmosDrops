@@ -123,6 +123,8 @@ $(document).ready(async function() {
         $('#shade').html(`<br/><a href="https://airdrop.shadeprotocol.io/" class="btn btn-info">Check Now</a>`)
         $('#comdex').html(`<br/><a href="https://airdrop.comdex.one/" class="btn btn-info">Check Now</a>`)
         $('#pstake').html(`<br/><a href="https://airdrop.pstake.finance/" class="btn btn-info">Check Now</a>`)
+        $('#nomic').html(`<br/><a href="https://app.nomic.io/" class="btn btn-info">Check Now</a>`)
+        $('#bitsong').html(`<br/><a href="https://wallet.bitsong.io/" class="btn btn-info">Check Now</a>`)
 
     });
 });
